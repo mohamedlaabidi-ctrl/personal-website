@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohamed Laabidi — AI Security Engineer in Training</title>
+<meta name="description" content="Mohamed Laabidi — Engineering student in Telecommunications &amp; Cybersecurity at Sup'Com. Offensive security, Linux, and AI security.">
+<style>
+:root{--bg:#0a0e14;--bg2:#0f1520;--card:#131a26;--text:#d5dbe5;--muted:#8b95a7;--accent:#22d3ee;--accent2:#4ade80;--border:#1e2836}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+.mono{font-family:'JetBrains Mono','Fira Code',Consolas,monospace}
+a{color:var(--accent);text-decoration:none}
+nav{position:sticky;top:0;z-index:100;background:rgba(10,14,20,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;padding:.9rem 6%}
+nav .logo{font-weight:700;color:var(--accent);font-size:1.05rem}
+nav ul{display:flex;gap:1.6rem;list-style:none}
+nav a{color:var(--muted);font-size:.9rem;transition:color .2s}
+nav a:hover{color:var(--accent)}
+section{padding:5rem 6%;max-width:1100px;margin:0 auto}
+h2{font-size:1.8rem;margin-bottom:1.5rem;color:#fff}
+h2 span{color:var(--accent)}
+.hero{display:flex;gap:3.5rem;align-items:center;padding-top:6rem;min-height:92vh;flex-wrap:wrap}
+.hero-text{flex:1;min-width:300px}
+.hero h1{font-size:2.8rem;color:#fff;line-height:1.15}
+.hero .tagline{color:var(--accent);font-size:1.15rem;margin:.6rem 0 1.2rem;font-weight:500}
+.hero p{color:var(--muted);max-width:520px}
+.hero-photo{flex:0 0 320px;position:relative}
+.hero-photo img{width:320px;height:320px;border-radius:50%;object-fit:cover;border:3px solid var(--accent);box-shadow:0 0 45px rgba(34,211,238,.35)}
+.btns{display:flex;gap:1rem;margin-top:2rem;flex-wrap:wrap}
+.btn{padding:.75rem 1.5rem;border-radius:8px;font-weight:600;font-size:.95rem;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--accent);color:#05121a}
+.btn-primary:hover{box-shadow:0 0 25px rgba(34,211,238,.4)}
+.btn-ghost{border:1px solid var(--border);color:var(--text)}
+.terminal{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:1rem;margin-top:1.8rem;max-width:520px;font-size:.85rem}
+.terminal .p{color:var(--accent2)}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.4rem}
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.6rem;transition:transform .2s,border-color .2s}
+.card:hover{transform:translateY(-4px);border-color:var(--accent)}
+.card h3{color:#fff;font-size:1.05rem;margin-bottom:.7rem}
+.card p,.card li{color:var(--muted);font-size:.9rem}
+.card ul{padding-left:1.2rem}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.5rem}
+.tag{background:rgba(34,211,238,.08);color:var(--accent);font-size:.75rem;padding:.25rem .6rem;border-radius:4px;font-family:monospace}
+.project{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.8rem;margin-bottom:1.3rem}
+.project h3{color:#fff;margin-bottom:.4rem}
+.project .meta{color:var(--accent2);font-size:.8rem;font-family:monospace;margin-bottom:.7rem}
+.project p{color:var(--muted);font-size:.93rem}
+.edu-item{border-left:2px solid var(--accent);padding-left:1.4rem;margin-bottom:1.6rem}
+.edu-item h3{color:#fff}
+.edu-item .when{color:var(--accent);font-size:.85rem;font-family:monospace}
+.edu-item p{color:var(--muted);font-size:.92rem}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem}
+footer{border-top:1px solid var(--border);text-align:center;padding:2rem;color:var(--muted);font-size:.85rem}
+@media(max-width:760px){.hero{flex-direction:column-reverse;text-align:center;padding-top:4rem}.hero p{margin:0 auto}.btns{justify-content:center}.hero-photo img{width:240px;height:240px}}
+</style>
+</head>
+<body>
+<nav>
+<div class="logo">&gt;_ mohamed.laabidi</div>
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#leadership">Leadership</a></li>
+<li><a href="#education">Education</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+<section class="hero">
+<div class="hero-text">
+<h1>Mohamed Laabidi</h1>
+<div class="tagline">Engineering Student — Telecommunications &amp; Cybersecurity @ Sup'Com</div>
+<p>Building hands-on offensive security and machine learning skills toward becoming an <strong>AI Security Engineer</strong> — focused on AI-driven vulnerability research and adversarial machine learning. Currently seeking a national internship.</p>
+<div class="btns">
+<a class="btn btn-primary" href="mailto:mohamed.laabidi@supcom.tn">Get in Touch</a>
+<a class="btn btn-ghost" href="https://glycocare.me" target="_blank">GlycoCare</a>
+</div>
+<div class="terminal mono"><span class="p">$</span> whoami<br>mohamed.laabidi<br><span class="p">$</span> goal --long-term<br>ai_security_engineer <span style="color:#8b95a7"># adversarial_ml | vuln_research</span></div>
+</div>
+<div class="hero-photo">
+<img src="photo.webp" alt="Mohamed Laabidi">
+</div>
+</section>
+<section id="about">
+<h2><span>01.</span> About</h2>
+<p style="color:var(--muted);max-width:720px">First-year engineering student at <strong style="color:#fff">Sup'Com (Higher School of Communication of Tunis)</strong> with strong mathematical foundations from a two-year preparatory program. I train hands-on in offensive web security and Linux systems, while studying AI/ML foundations as a basis for adversarial machine learning and AI-driven vulnerability research. My long-term goal: <strong style="color:var(--accent)">AI Security Engineer</strong>.</p>
+</section>
+<section id="skills">
+<h2><span>02.</span> Skills</h2>
+<div class="card-grid">
+<div class="card"><h3>&#128737;&#65039; Offensive Security</h3><ul><li>XSS, SQL Injection, Local File Inclusion</li><li>HTTP Parameter Pollution</li><li>JWT / session attack chains &amp; remediation</li></ul></div>
+<div class="card"><h3>&#128440;&#65039; Linux &amp; Systems</h3><ul><li>Process management, I/O redirection, text processing</li><li>Environment variables, permissions, command chaining</li><li>Terminal multiplexing (tmux)</li></ul></div>
+<div class="card"><h3>&#129302; AI &amp; ML Foundations</h3><ul><li>Adversarial machine learning</li><li>AI-driven vulnerability research</li><li>Currently studying ML fundamentals</li></ul></div>
+<div class="card"><h3>&#127891; Certifications</h3><p><strong>eJPT</strong> — eLearnSecurity Junior Penetration Tester</p><p style="color:var(--accent2);font-size:.85rem;margin-top:.4rem">Status: in progress</p></div>
+</div>
+<div class="tags"><span class="tag">XSS</span><span class="tag">SQLi</span><span class="tag">LFI</span><span class="tag">HPP</span><span class="tag">JWT</span><span class="tag">Linux</span><span class="tag">tmux</span><span class="tag">Adversarial ML</span></div>
+</section>
+<section id="projects">
+<h2><span>03.</span> Projects &amp; Training</h2>
+<div class="project">
+<h3>pwn.college — Structured Security Training</h3>
+<div class="meta">STATUS: ongoing | PRIMARY PLATFORM</div>
+<p>Completed the <strong style="color:#fff">Linux Luminarium</strong> module; currently progressing through <strong style="color:#fff">Computing 101</strong>. Also active on TryHackMe, PortSwigger Web Security Academy, Hack The Box Starting Point, and picoCTF.</p>
+</div>
+<div class="project">
+<h3>Personal Linux Reference Guide</h3>
+<div class="meta">AUTHORED &amp; MAINTAINED</div>
+<p>Built and maintain a personal cheat sheet covering core Linux administration topics learned through pwn.college challenges — including PATH hijacking, permissions, and text-processing workflows.</p>
+</div>
+<div class="project">
+<h3>Web Application Security Case Study</h3>
+<div class="meta">INDEPENDENT RESEARCH</div>
+<p>Analyzed a web application penetration testing case end-to-end: attack chains and remediation strategies for XSS with JWT hijacking, HTTP Parameter Pollution, SQL Injection, and Local File Inclusion.</p>
+</div>
+</section>
+<section id="leadership">
+<h2><span>04.</span> Leadership</h2>
+<div class="project">
+<h3>PACT — GlycoCare Initiative</h3>
+<div class="meta">1ST YEAR @ SUP'COM | TEAM MEMBER &amp; WEBSITE DEVELOPER</div>
+<p>Student-led social impact project for diabetes awareness, run end-to-end: fundraising, sponsorships, social media, and public events.</p>
+<ul style="color:var(--muted);font-size:.93rem;padding-left:1.2rem;margin-top:.7rem">
+<li>Designed and built the project's website — <a href="https://glycocare.me" target="_blank">glycocare.me</a></li>
+<li>Organized a charity marathon fundraiser with paid entry</li>
+<li>Secured two sponsorships: gym memberships (top-3 prizes) and Délice beverages</li>
+<li>Converted funds raised into glycometers for patients in need</li>
+</ul>
+</div>
+</section>
+<section id="education">
+<h2><span>05.</span> Education</h2>
+<div class="edu-item">
+<h3>Sup'Com — Higher School of Communication of Tunis</h3>
+<div class="when">ENGINEERING CYCLE — CURRENT</div>
+<p>Diplôme d'Ingénieur, Telecommunications — 1st year. Working toward the <strong style="color:#fff">CySed (cybersecurity) specialization track</strong>, a GPA-gated program.</p>
+</div>
+<div class="edu-item">
+<h3>Preparatory Program for Engineering Studies</h3>
+<div class="when">TWO-YEAR CYCLE — COMPLETED</div>
+<p>Built strong mathematical foundations in preparation for the engineering cycle.</p>
+</div>
+</section>
+<section id="contact">
+<h2><span>06.</span> Contact</h2>
+<div class="contact-grid">
+<div class="card"><h3>Email</h3><p><a href="mailto:mohamed.laabidi@supcom.tn">mohamed.laabidi@supcom.tn</a></p></div>
+<div class="card"><h3>Phone</h3><p>+216 22 035 055</p></div>
+<div class="card"><h3>Location</h3><p>Tunisia</p></div>
+<div class="card"><h3>Languages</h3><p>Arabic — Native<br>English — Fluent<br>French — Reading proficiency</p></div>
+</div>
+</section>
+<footer>
+<p>&#169; 2026 Mohamed Laabidi — Built with a terminal-inspired mindset.</p>
+</footer>
+</body>
+</html>
