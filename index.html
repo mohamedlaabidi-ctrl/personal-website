@@ -2,63 +2,95 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Mohamed Laabidi — AI Security Engineer in Training</title>
 <meta name="description" content="Mohamed Laabidi — Engineering student in Telecommunications &amp; Cybersecurity at Sup'Com. Offensive security, Linux, and AI security.">
 <style>
-:root{--bg:#0a0e14;--bg2:#0f1520;--card:#131a26;--text:#d5dbe5;--muted:#8b95a7;--accent:#22d3ee;--accent2:#4ade80;--border:#1e2836}
+:root{--bg:#0a0e14;--bg2:#0f1520;--card:#131a26;--text:#d5dbe5;--muted:#8b95a7;--accent:#22d3ee;--accent2:#4ade80;--border:#1e2836;--nav-h:60px}
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
 .mono{font-family:'JetBrains Mono','Fira Code',Consolas,monospace}
 a{color:var(--accent);text-decoration:none}
-nav{position:sticky;top:0;z-index:100;background:rgba(10,14,20,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;padding:.9rem 6%}
-nav .logo{font-weight:700;color:var(--accent);font-size:1.05rem}
+img{max-width:100%;display:block}
+button{font:inherit;cursor:pointer;background:none;border:none}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(10,14,20,.9);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;padding:.75rem 5%;min-height:var(--nav-h)}
+nav .logo{font-weight:700;color:var(--accent);font-size:1.05rem;white-space:nowrap}
 nav ul{display:flex;gap:1.6rem;list-style:none}
 nav a{color:var(--muted);font-size:.9rem;transition:color .2s}
 nav a:hover{color:var(--accent)}
-section{padding:5rem 6%;max-width:1100px;margin:0 auto}
-h2{font-size:1.8rem;margin-bottom:1.5rem;color:#fff}
+.nav-toggle{display:none;flex-direction:column;gap:5px;padding:.5rem;z-index:101}
+.nav-toggle span{display:block;width:24px;height:2px;background:var(--text);transition:transform .25s,opacity .25s}
+.nav-open .nav-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-open .nav-toggle span:nth-child(2){opacity:0}
+.nav-open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+section{padding:4.5rem 6%;max-width:1100px;margin:0 auto}
+h2{font-size:clamp(1.4rem,4vw,1.8rem);margin-bottom:1.5rem;color:#fff}
 h2 span{color:var(--accent)}
-.hero{display:flex;gap:3.5rem;align-items:center;padding-top:6rem;min-height:92vh;flex-wrap:wrap}
-.hero-text{flex:1;min-width:300px}
-.hero h1{font-size:2.8rem;color:#fff;line-height:1.15}
-.hero .tagline{color:var(--accent);font-size:1.15rem;margin:.6rem 0 1.2rem;font-weight:500}
+
+/* HERO */
+.hero{display:flex;gap:3rem;align-items:center;padding-top:5rem;min-height:calc(100vh - var(--nav-h));flex-wrap:wrap}
+.hero-text{flex:1;min-width:min(300px,100%)}
+.hero h1{font-size:clamp(2rem,7vw,2.8rem);color:#fff;line-height:1.15;word-wrap:break-word}
+.hero .tagline{color:var(--accent);font-size:clamp(.95rem,3vw,1.15rem);margin:.6rem 0 1.2rem;font-weight:500}
 .hero p{color:var(--muted);max-width:520px}
-.hero-photo{flex:0 0 320px;position:relative}
-.hero-photo img{width:320px;height:320px;border-radius:50%;object-fit:cover;border:3px solid var(--accent);box-shadow:0 0 45px rgba(34,211,238,.35)}
+.hero-photo{flex:0 0 auto;margin:0 auto}
+.hero-photo img{width:clamp(200px,55vw,320px);aspect-ratio:1;border-radius:50%;object-fit:cover;border:3px solid var(--accent);box-shadow:0 0 45px rgba(34,211,238,.35)}
 .btns{display:flex;gap:1rem;margin-top:2rem;flex-wrap:wrap}
-.btn{padding:.75rem 1.5rem;border-radius:8px;font-weight:600;font-size:.95rem;transition:transform .2s,box-shadow .2s}
+.btn{padding:.8rem 1.5rem;border-radius:8px;font-weight:600;font-size:.95rem;transition:transform .2s,box-shadow .2s;display:inline-block}
 .btn:hover{transform:translateY(-2px)}
 .btn-primary{background:var(--accent);color:#05121a}
 .btn-primary:hover{box-shadow:0 0 25px rgba(34,211,238,.4)}
 .btn-ghost{border:1px solid var(--border);color:var(--text)}
-.terminal{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:1rem;margin-top:1.8rem;max-width:520px;font-size:.85rem}
+.terminal{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:1rem;margin-top:1.8rem;max-width:520px;font-size:.8rem;overflow-x:auto;white-space:pre;word-break:break-word;white-space:normal}
 .terminal .p{color:var(--accent2)}
-.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.4rem}
+
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:1.4rem}
 .card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.6rem;transition:transform .2s,border-color .2s}
-.card:hover{transform:translateY(-4px);border-color:var(--accent)}
+@media(hover:hover){.card:hover{transform:translateY(-4px);border-color:var(--accent)}}
 .card h3{color:#fff;font-size:1.05rem;margin-bottom:.7rem}
 .card p,.card li{color:var(--muted);font-size:.9rem}
 .card ul{padding-left:1.2rem}
 .tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.5rem}
 .tag{background:rgba(34,211,238,.08);color:var(--accent);font-size:.75rem;padding:.25rem .6rem;border-radius:4px;font-family:monospace}
-.project{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.8rem;margin-bottom:1.3rem}
-.project h3{color:#fff;margin-bottom:.4rem}
-.project .meta{color:var(--accent2);font-size:.8rem;font-family:monospace;margin-bottom:.7rem}
+.project{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:clamp(1.2rem,4vw,1.8rem);margin-bottom:1.3rem}
+.project h3{color:#fff;margin-bottom:.4rem;font-size:clamp(1rem,3.5vw,1.15rem)}
+.project .meta{color:var(--accent2);font-size:.78rem;font-family:monospace;margin-bottom:.7rem;word-break:break-word}
 .project p{color:var(--muted);font-size:.93rem}
+.project ul{color:var(--muted);font-size:.93rem;padding-left:1.2rem;margin-top:.7rem}
 .edu-item{border-left:2px solid var(--accent);padding-left:1.4rem;margin-bottom:1.6rem}
-.edu-item h3{color:#fff}
-.edu-item .when{color:var(--accent);font-size:.85rem;font-family:monospace}
+.edu-item h3{color:#fff;font-size:1.05rem}
+.edu-item .when{color:var(--accent);font-size:.8rem;font-family:monospace}
 .edu-item p{color:var(--muted);font-size:.92rem}
-.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem}
-footer{border-top:1px solid var(--border);text-align:center;padding:2rem;color:var(--muted);font-size:.85rem}
-@media(max-width:760px){.hero{flex-direction:column-reverse;text-align:center;padding-top:4rem}.hero p{margin:0 auto}.btns{justify-content:center}.hero-photo img{width:240px;height:240px}}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:1.2rem}
+.contact-grid a,.contact-grid p{font-size:.9rem;word-break:break-word}
+footer{border-top:1px solid var(--border);text-align:center;padding:2rem 1rem;color:var(--muted);font-size:.85rem}
+
+/* MOBILE */
+@media(max-width:820px){
+  .nav-toggle{display:flex}
+  nav ul{position:fixed;top:var(--nav-h);right:-100%;width:min(260px,75vw);height:calc(100vh - var(--nav-h));background:var(--bg2);border-left:1px solid var(--border);flex-direction:column;gap:0;padding:1rem 0;margin:0;transition:right .3s ease}
+  .nav-open nav ul,nav .nav-open ul{right:0}
+  body.nav-open nav ul{right:0}
+  nav ul li a{display:block;padding:.9rem 1.6rem;font-size:1rem}
+  .hero{flex-direction:column-reverse;text-align:center;padding-top:3rem;min-height:auto;gap:2.2rem}
+  .hero p{margin:0 auto}
+  .btns{justify-content:center}
+  section{padding:3.5rem 5%}
+}
+@media(max-width:380px){
+  nav .logo{font-size:.95rem}
+  .btn{width:100%;text-align:center}
+}
 </style>
 </head>
 <body>
 <nav>
 <div class="logo">&gt;_ mohamed.laabidi</div>
+<button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
 <ul>
 <li><a href="#about">About</a></li>
 <li><a href="#skills">Skills</a></li>
@@ -75,9 +107,12 @@ footer{border-top:1px solid var(--border);text-align:center;padding:2rem;color:v
 <p>Building hands-on offensive security and machine learning skills toward becoming an <strong>AI Security Engineer</strong> — focused on AI-driven vulnerability research and adversarial machine learning. Currently seeking a national internship.</p>
 <div class="btns">
 <a class="btn btn-primary" href="mailto:mohamed.laabidi@supcom.tn">Get in Touch</a>
-<a class="btn btn-ghost" href="https://glycocare.me" target="_blank">GlycoCare</a>
+<a class="btn btn-ghost" href="https://glycocare.me" target="_blank" rel="noopener">GlycoCare</a>
 </div>
-<div class="terminal mono"><span class="p">$</span> whoami<br>mohamed.laabidi<br><span class="p">$</span> goal --long-term<br>ai_security_engineer <span style="color:#8b95a7"># adversarial_ml | vuln_research</span></div>
+<div class="terminal mono"><span class="p">$</span> whoami
+mohamed.laabidi
+<span class="p">$</span> goal --long-term
+ai_security_engineer <span style="color:#8b95a7"># adversarial_ml | vuln_research</span></div>
 </div>
 <div class="hero-photo">
 <img src="photo.webp" alt="Mohamed Laabidi">
@@ -121,8 +156,8 @@ footer{border-top:1px solid var(--border);text-align:center;padding:2rem;color:v
 <h3>PACT — GlycoCare Initiative</h3>
 <div class="meta">1ST YEAR @ SUP'COM | TEAM MEMBER &amp; WEBSITE DEVELOPER</div>
 <p>Student-led social impact project for diabetes awareness, run end-to-end: fundraising, sponsorships, social media, and public events.</p>
-<ul style="color:var(--muted);font-size:.93rem;padding-left:1.2rem;margin-top:.7rem">
-<li>Designed and built the project's website — <a href="https://glycocare.me" target="_blank">glycocare.me</a></li>
+<ul>
+<li>Designed and built the project's website — <a href="https://glycocare.me" target="_blank" rel="noopener">glycocare.me</a></li>
 <li>Organized a charity marathon fundraiser with paid entry</li>
 <li>Secured two sponsorships: gym memberships (top-3 prizes) and Délice beverages</li>
 <li>Converted funds raised into glycometers for patients in need</li>
@@ -154,5 +189,19 @@ footer{border-top:1px solid var(--border);text-align:center;padding:2rem;color:v
 <footer>
 <p>&#169; 2026 Mohamed Laabidi — Built with a terminal-inspired mindset.</p>
 </footer>
+<script>
+(function(){
+  var toggle=document.querySelector('.nav-toggle');
+  var links=document.querySelectorAll('nav ul a');
+  toggle.addEventListener('click',function(){
+    var open=document.body.classList.toggle('nav-open');
+    toggle.setAttribute('aria-expanded',open?'true':'false');
+  });
+  links.forEach(function(a){a.addEventListener('click',function(){
+    document.body.classList.remove('nav-open');
+    toggle.setAttribute('aria-expanded','false');
+  });});
+})();
+</script>
 </body>
 </html>
