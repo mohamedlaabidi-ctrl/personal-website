@@ -14,24 +14,22 @@ body{font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;backgroun
 a{color:var(--accent);text-decoration:none}
 img{max-width:100%;display:block}
 button{font:inherit;cursor:pointer;background:none;border:none}
-
-/* NAV */
 nav{position:sticky;top:0;z-index:100;background:rgba(10,14,20,.9);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;padding:.75rem 5%;min-height:var(--nav-h)}
 nav .logo{font-weight:700;color:var(--accent);font-size:1.05rem;white-space:nowrap}
+.nav-right{display:flex;align-items:center;gap:1rem}
+.lang-btn{color:var(--accent);border:1px solid var(--border);border-radius:20px;padding:.3rem .9rem;font-size:.8rem;font-weight:700;letter-spacing:.05em;transition:border-color .2s,background .2s;flex:none}
+.lang-btn:hover{border-color:var(--accent);background:rgba(34,211,238,.08)}
 nav ul{display:flex;gap:1.6rem;list-style:none}
 nav a{color:var(--muted);font-size:.9rem;transition:color .2s}
 nav a:hover{color:var(--accent)}
 .nav-toggle{display:none;flex-direction:column;gap:5px;padding:.5rem;z-index:101}
 .nav-toggle span{display:block;width:24px;height:2px;background:var(--text);transition:transform .25s,opacity .25s}
-.nav-open .nav-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.nav-open .nav-toggle span:nth-child(2){opacity:0}
-.nav-open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-
+body.nav-open .nav-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+body.nav-open .nav-toggle span:nth-child(2){opacity:0}
+body.nav-open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 section{padding:4.5rem 6%;max-width:1100px;margin:0 auto}
 h2{font-size:clamp(1.4rem,4vw,1.8rem);margin-bottom:1.5rem;color:#fff}
 h2 span{color:var(--accent)}
-
-/* HERO */
 .hero{display:flex;gap:3rem;align-items:center;padding-top:5rem;min-height:calc(100vh - var(--nav-h));flex-wrap:wrap}
 .hero-text{flex:1;min-width:min(300px,100%)}
 .hero h1{font-size:clamp(2rem,7vw,2.8rem);color:#fff;line-height:1.15;word-wrap:break-word}
@@ -45,9 +43,8 @@ h2 span{color:var(--accent)}
 .btn-primary{background:var(--accent);color:#05121a}
 .btn-primary:hover{box-shadow:0 0 25px rgba(34,211,238,.4)}
 .btn-ghost{border:1px solid var(--border);color:var(--text)}
-.terminal{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:1rem;margin-top:1.8rem;max-width:520px;font-size:.8rem;overflow-x:auto;white-space:pre;word-break:break-word;white-space:normal}
+.terminal{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:1rem;margin-top:1.8rem;max-width:520px;font-size:.8rem;word-break:break-word}
 .terminal .p{color:var(--accent2)}
-
 .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:1.4rem}
 .card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.6rem;transition:transform .2s,border-color .2s}
 @media(hover:hover){.card:hover{transform:translateY(-4px);border-color:var(--accent)}}
@@ -68,12 +65,9 @@ h2 span{color:var(--accent)}
 .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:1.2rem}
 .contact-grid a,.contact-grid p{font-size:.9rem;word-break:break-word}
 footer{border-top:1px solid var(--border);text-align:center;padding:2rem 1rem;color:var(--muted);font-size:.85rem}
-
-/* MOBILE */
 @media(max-width:820px){
   .nav-toggle{display:flex}
   nav ul{position:fixed;top:var(--nav-h);right:-100%;width:min(260px,75vw);height:calc(100vh - var(--nav-h));background:var(--bg2);border-left:1px solid var(--border);flex-direction:column;gap:0;padding:1rem 0;margin:0;transition:right .3s ease}
-  .nav-open nav ul,nav .nav-open ul{right:0}
   body.nav-open nav ul{right:0}
   nav ul li a{display:block;padding:.9rem 1.6rem;font-size:1rem}
   .hero{flex-direction:column-reverse;text-align:center;padding-top:3rem;min-height:auto;gap:2.2rem}
@@ -90,23 +84,26 @@ footer{border-top:1px solid var(--border);text-align:center;padding:2rem 1rem;co
 <body>
 <nav>
 <div class="logo">&gt;_ mohamed.laabidi</div>
+<div class="nav-right">
+<button class="lang-btn mono" id="langBtn" aria-label="Passer en français">FR</button>
 <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
 <ul>
-<li><a href="#about">About</a></li>
-<li><a href="#skills">Skills</a></li>
-<li><a href="#projects">Projects</a></li>
-<li><a href="#leadership">Leadership</a></li>
-<li><a href="#education">Education</a></li>
-<li><a href="#contact">Contact</a></li>
+<li><a href="#about" data-i18n="nav.about">About</a></li>
+<li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
+<li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
+<li><a href="#leadership" data-i18n="nav.leadership">Leadership</a></li>
+<li><a href="#education" data-i18n="nav.education">Education</a></li>
+<li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
 </ul>
+</div>
 </nav>
 <section class="hero">
 <div class="hero-text">
 <h1>Mohamed Laabidi</h1>
-<div class="tagline">Engineering Student — Telecommunications &amp; Cybersecurity @ Sup'Com</div>
-<p>Building hands-on offensive security and machine learning skills toward becoming an <strong>AI Security Engineer</strong> — focused on AI-driven vulnerability research and adversarial machine learning. Currently seeking a national internship.</p>
+<div class="tagline" data-i18n="hero.tagline">Engineering Student — Telecommunications &amp; Cybersecurity @ Sup'Com</div>
+<p data-i18n="hero.intro">Building hands-on offensive security and machine learning skills toward becoming an <strong>AI Security Engineer</strong> — focused on AI-driven vulnerability research and adversarial machine learning. Currently seeking a national internship.</p>
 <div class="btns">
-<a class="btn btn-primary" href="mailto:mohamed.laabidi@supcom.tn">Get in Touch</a>
+<a class="btn btn-primary" href="mailto:mohamed.laabidi@supcom.tn" data-i18n="hero.cta">Get in Touch</a>
 <a class="btn btn-ghost" href="https://glycocare.me" target="_blank" rel="noopener">GlycoCare</a>
 </div>
 <div class="terminal mono"><span class="p">$</span> whoami
@@ -119,77 +116,117 @@ ai_security_engineer <span style="color:#8b95a7"># adversarial_ml | vuln_researc
 </div>
 </section>
 <section id="about">
-<h2><span>01.</span> About</h2>
-<p style="color:var(--muted);max-width:720px">First-year engineering student at <strong style="color:#fff">Sup'Com (Higher School of Communication of Tunis)</strong> with strong mathematical foundations from a two-year preparatory program. I train hands-on in offensive web security and Linux systems, while studying AI/ML foundations as a basis for adversarial machine learning and AI-driven vulnerability research. My long-term goal: <strong style="color:var(--accent)">AI Security Engineer</strong>.</p>
+<h2><span>01.</span> <span data-i18n="s.about">About</span></h2>
+<p style="color:var(--muted);max-width:720px" data-i18n="about.text">First-year engineering student at <strong style="color:#fff">Sup'Com (Higher School of Communication of Tunis)</strong> with strong mathematical foundations from a two-year preparatory program. I train hands-on in offensive web security and Linux systems, while studying AI/ML foundations as a basis for adversarial machine learning and AI-driven vulnerability research. My long-term goal: <strong style="color:var(--accent)">AI Security Engineer</strong>.</p>
 </section>
 <section id="skills">
-<h2><span>02.</span> Skills</h2>
+<h2><span>02.</span> <span data-i18n="s.skills">Skills</span></h2>
 <div class="card-grid">
-<div class="card"><h3>&#128737;&#65039; Offensive Security</h3><ul><li>XSS, SQL Injection, Local File Inclusion</li><li>HTTP Parameter Pollution</li><li>JWT / session attack chains &amp; remediation</li></ul></div>
-<div class="card"><h3>&#128440;&#65039; Linux &amp; Systems</h3><ul><li>Process management, I/O redirection, text processing</li><li>Environment variables, permissions, command chaining</li><li>Terminal multiplexing (tmux)</li></ul></div>
-<div class="card"><h3>&#129302; AI &amp; ML Foundations</h3><ul><li>Adversarial machine learning</li><li>AI-driven vulnerability research</li><li>Currently studying ML fundamentals</li></ul></div>
-<div class="card"><h3>&#127891; Certifications</h3><p><strong>eJPT</strong> — eLearnSecurity Junior Penetration Tester</p><p style="color:var(--accent2);font-size:.85rem;margin-top:.4rem">Status: in progress</p></div>
+<div class="card"><h3>&#128737;&#65039; <span data-i18n="sk.off.title">Offensive Security</span></h3><ul><li data-i18n="sk.off.1">XSS, SQL Injection, Local File Inclusion</li><li data-i18n="sk.off.2">HTTP Parameter Pollution</li><li data-i18n="sk.off.3">JWT / session attack chains &amp; remediation</li></ul></div>
+<div class="card"><h3>&#128440;&#65039; <span data-i18n="sk.linux.title">Linux &amp; Systems</span></h3><ul><li data-i18n="sk.linux.1">Process management, I/O redirection, text processing</li><li data-i18n="sk.linux.2">Environment variables, permissions, command chaining</li><li data-i18n="sk.linux.3">Terminal multiplexing (tmux)</li></ul></div>
+<div class="card"><h3>&#129302; <span data-i18n="sk.ai.title">AI &amp; ML Foundations</span></h3><ul><li data-i18n="sk.ai.1">Adversarial machine learning</li><li data-i18n="sk.ai.2">AI-driven vulnerability research</li><li data-i18n="sk.ai.3">Currently studying ML fundamentals</li></ul></div>
+<div class="card"><h3>&#127891; <span data-i18n="sk.cert.title">Certifications</span></h3><p><strong>eJPT</strong> — eLearnSecurity Junior Penetration Tester</p><p style="color:var(--accent2);font-size:.85rem;margin-top:.4rem" data-i18n="sk.cert.status">Status: in progress</p></div>
 </div>
 <div class="tags"><span class="tag">XSS</span><span class="tag">SQLi</span><span class="tag">LFI</span><span class="tag">HPP</span><span class="tag">JWT</span><span class="tag">Linux</span><span class="tag">tmux</span><span class="tag">Adversarial ML</span></div>
 </section>
 <section id="projects">
-<h2><span>03.</span> Projects &amp; Training</h2>
+<h2><span>03.</span> <span data-i18n="s.projects">Projects &amp; Training</span></h2>
 <div class="project">
-<h3>pwn.college — Structured Security Training</h3>
-<div class="meta">STATUS: ongoing | PRIMARY PLATFORM</div>
-<p>Completed the <strong style="color:#fff">Linux Luminarium</strong> module; currently progressing through <strong style="color:#fff">Computing 101</strong>. Also active on TryHackMe, PortSwigger Web Security Academy, Hack The Box Starting Point, and picoCTF.</p>
+<h3 data-i18n="pr.pwn.title">pwn.college — Structured Security Training</h3>
+<div class="meta" data-i18n="pr.pwn.meta">STATUS: ongoing | PRIMARY PLATFORM</div>
+<p data-i18n="pr.pwn.text">Completed the <strong style="color:#fff">Linux Luminarium</strong> module; currently progressing through <strong style="color:#fff">Computing 101</strong>. Also active on TryHackMe, PortSwigger Web Security Academy, Hack The Box Starting Point, and picoCTF.</p>
 </div>
 <div class="project">
-<h3>Personal Linux Reference Guide</h3>
-<div class="meta">AUTHORED &amp; MAINTAINED</div>
-<p>Built and maintain a personal cheat sheet covering core Linux administration topics learned through pwn.college challenges — including PATH hijacking, permissions, and text-processing workflows.</p>
+<h3 data-i18n="pr.guide.title">Personal Linux Reference Guide</h3>
+<div class="meta" data-i18n="pr.guide.meta">AUTHORED &amp; MAINTAINED</div>
+<p data-i18n="pr.guide.text">Built and maintain a personal cheat sheet covering core Linux administration topics learned through pwn.college challenges — including PATH hijacking, permissions, and text-processing workflows.</p>
 </div>
 <div class="project">
-<h3>Web Application Security Case Study</h3>
-<div class="meta">INDEPENDENT RESEARCH</div>
-<p>Analyzed a web application penetration testing case end-to-end: attack chains and remediation strategies for XSS with JWT hijacking, HTTP Parameter Pollution, SQL Injection, and Local File Inclusion.</p>
+<h3 data-i18n="pr.case.title">Web Application Security Case Study</h3>
+<div class="meta" data-i18n="pr.case.meta">INDEPENDENT RESEARCH</div>
+<p data-i18n="pr.case.text">Analyzed a web application penetration testing case end-to-end: attack chains and remediation strategies for XSS with JWT hijacking, HTTP Parameter Pollution, SQL Injection, and Local File Inclusion.</p>
 </div>
 </section>
 <section id="leadership">
-<h2><span>04.</span> Leadership</h2>
+<h2><span>04.</span> <span data-i18n="s.leadership">Leadership</span></h2>
 <div class="project">
-<h3>PACT — GlycoCare Initiative</h3>
-<div class="meta">1ST YEAR @ SUP'COM | TEAM MEMBER &amp; WEBSITE DEVELOPER</div>
-<p>Student-led social impact project for diabetes awareness, run end-to-end: fundraising, sponsorships, social media, and public events.</p>
+<h3 data-i18n="ld.title">PACT — GlycoCare Initiative</h3>
+<div class="meta" data-i18n="ld.meta">1ST YEAR @ SUP'COM | TEAM MEMBER &amp; WEBSITE DEVELOPER</div>
+<p data-i18n="ld.text">Student-led social impact project for diabetes awareness, run end-to-end: fundraising, sponsorships, social media, and public events.</p>
 <ul>
-<li>Designed and built the project's website — <a href="https://glycocare.me" target="_blank" rel="noopener">glycocare.me</a></li>
-<li>Organized a charity marathon fundraiser with paid entry</li>
-<li>Secured two sponsorships: gym memberships (top-3 prizes) and Délice beverages</li>
-<li>Converted funds raised into glycometers for patients in need</li>
+<li data-i18n="ld.b1">Designed and built the project's website — <a href="https://glycocare.me" target="_blank" rel="noopener">glycocare.me</a></li>
+<li data-i18n="ld.b2">Organized a charity marathon fundraiser with paid entry</li>
+<li data-i18n="ld.b3">Secured two sponsorships: gym memberships (top-3 prizes) and Délice beverages</li>
+<li data-i18n="ld.b4">Converted funds raised into glycometers for patients in need</li>
 </ul>
 </div>
 </section>
 <section id="education">
-<h2><span>05.</span> Education</h2>
+<h2><span>05.</span> <span data-i18n="s.education">Education</span></h2>
 <div class="edu-item">
-<h3>Sup'Com — Higher School of Communication of Tunis</h3>
-<div class="when">ENGINEERING CYCLE — CURRENT</div>
-<p>Diplôme d'Ingénieur, Telecommunications — 1st year. Working toward the <strong style="color:#fff">CySed (cybersecurity) specialization track</strong>, a GPA-gated program.</p>
+<h3 data-i18n="edu.sup.title">Sup'Com — Higher School of Communication of Tunis</h3>
+<div class="when" data-i18n="edu.sup.when">ENGINEERING CYCLE — CURRENT</div>
+<p data-i18n="edu.sup.text">Diplôme d'Ingénieur, Telecommunications — 1st year. Working toward the <strong style="color:#fff">CySed (cybersecurity) specialization track</strong>, a GPA-gated program.</p>
 </div>
 <div class="edu-item">
-<h3>Preparatory Program for Engineering Studies</h3>
-<div class="when">TWO-YEAR CYCLE — COMPLETED</div>
-<p>Built strong mathematical foundations in preparation for the engineering cycle.</p>
+<h3 data-i18n="edu.prep.title">Preparatory Program for Engineering Studies</h3>
+<div class="when" data-i18n="edu.prep.when">TWO-YEAR CYCLE — COMPLETED</div>
+<p data-i18n="edu.prep.text">Built strong mathematical foundations in preparation for the engineering cycle.</p>
 </div>
 </section>
 <section id="contact">
-<h2><span>06.</span> Contact</h2>
+<h2><span>06.</span> <span data-i18n="s.contact">Contact</span></h2>
 <div class="contact-grid">
-<div class="card"><h3>Email</h3><p><a href="mailto:mohamed.laabidi@supcom.tn">mohamed.laabidi@supcom.tn</a></p></div>
-<div class="card"><h3>Phone</h3><p>+216 22 035 055</p></div>
-<div class="card"><h3>Location</h3><p>Tunisia</p></div>
-<div class="card"><h3>Languages</h3><p>Arabic — Native<br>English — Fluent<br>French — Reading proficiency</p></div>
+<div class="card"><h3 data-i18n="c.email">Email</h3><p><a href="mailto:mohamed.laabidi@supcom.tn">mohamed.laabidi@supcom.tn</a></p></div>
+<div class="card"><h3 data-i18n="c.phone">Phone</h3><p>+216 22 035 055</p></div>
+<div class="card"><h3 data-i18n="c.location">Location</h3><p data-i18n="c.location.val">Tunisia</p></div>
+<div class="card"><h3 data-i18n="c.langs">Languages</h3><p data-i18n="c.langs.val">Arabic — Native<br>English — Fluent<br>French — Reading proficiency</p></div>
 </div>
 </section>
 <footer>
-<p>&#169; 2026 Mohamed Laabidi — Built with a terminal-inspired mindset.</p>
+<p data-i18n="footer">&#169; 2026 Mohamed Laabidi — Built with a terminal-inspired mindset.</p>
 </footer>
 <script>
+var I18N={
+"nav.about":{en:"About",fr:"À propos"},"nav.skills":{en:"Skills",fr:"Compétences"},"nav.projects":{en:"Projects",fr:"Projets"},"nav.leadership":{en:"Leadership",fr:"Leadership"},"nav.education":{en:"Education",fr:"Formation"},"nav.contact":{en:"Contact",fr:"Contact"},
+"hero.tagline":{en:"Engineering Student — Telecommunications &amp; Cybersecurity @ Sup'Com",fr:"Étudiant ingénieur — Télécommunications &amp; Cybersécurité @ Sup'Com"},
+"hero.intro":{en:"Building hands-on offensive security and machine learning skills toward becoming an <strong>AI Security Engineer</strong> — focused on AI-driven vulnerability research and adversarial machine learning. Currently seeking a national internship.",fr:"Je développe des compétences pratiques en sécurité offensive et en machine learning pour devenir <strong>Ingénieur en Sécurité IA</strong> — avec un focus sur la recherche de vulnérabilités assistée par IA et l'apprentissage automatique adversarial. Actuellement à la recherche d'un stage national."},
+"hero.cta":{en:"Get in Touch",fr:"Me contacter"},
+"s.about":{en:"About",fr:"À propos"},"s.skills":{en:"Skills",fr:"Compétences"},"s.projects":{en:"Projects &amp; Training",fr:"Projets &amp; Formation"},"s.leadership":{en:"Leadership",fr:"Leadership"},"s.education":{en:"Education",fr:"Formation"},"s.contact":{en:"Contact",fr:"Contact"},
+"about.text":{en:"First-year engineering student at <strong style='color:#fff'>Sup'Com (Higher School of Communication of Tunis)</strong> with strong mathematical foundations from a two-year preparatory program. I train hands-on in offensive web security and Linux systems, while studying AI/ML foundations as a basis for adversarial machine learning and AI-driven vulnerability research. My long-term goal: <strong style='color:#22d3ee'>AI Security Engineer</strong>.",fr:"Étudiant ingénieur en première année à <strong style='color:#fff'>Sup'Com (École Supérieure des Communications de Tunis)</strong>, avec de solides bases mathématiques acquises en deux années de classes préparatoires. Je me forme pratiquement à la sécurité web offensive et aux systèmes Linux, tout en étudiant les fondements de l'IA/ML en préparation de l'apprentissage automatique adversarial et de la recherche de vulnérabilités assistée par IA. Objectif long terme : <strong style='color:#22d3ee'>Ingénieur en Sécurité IA</strong>."},
+"sk.off.title":{en:"Offensive Security",fr:"Sécurité Offensive"},"sk.off.1":{en:"XSS, SQL Injection, Local File Inclusion",fr:"XSS, injection SQL, inclusion de fichiers locaux"},"sk.off.2":{en:"HTTP Parameter Pollution",fr:"Pollution des paramètres HTTP"},"sk.off.3":{en:"JWT / session attack chains &amp; remediation",fr:"Chaînes d'attaque JWT / session &amp; remédiation"},
+"sk.linux.title":{en:"Linux &amp; Systems",fr:"Linux &amp; Systèmes"},"sk.linux.1":{en:"Process management, I/O redirection, text processing",fr:"Gestion des processus, redirections E/S, traitement de texte"},"sk.linux.2":{en:"Environment variables, permissions, command chaining",fr:"Variables d'environnement, permissions, enchaînement de commandes"},"sk.linux.3":{en:"Terminal multiplexing (tmux)",fr:"Multiplexage de terminal (tmux)"},
+"sk.ai.title":{en:"AI &amp; ML Foundations",fr:"IA &amp; Fondements ML"},"sk.ai.1":{en:"Adversarial machine learning",fr:"Apprentissage automatique adversarial"},"sk.ai.2":{en:"AI-driven vulnerability research",fr:"Recherche de vulnérabilités assistée par IA"},"sk.ai.3":{en:"Currently studying ML fundamentals",fr:"Étude des fondamentaux du ML en cours"},
+"sk.cert.title":{en:"Certifications",fr:"Certifications"},"sk.cert.status":{en:"Status: in progress",fr:"Statut : en cours"},
+"pr.pwn.title":{en:"pwn.college — Structured Security Training",fr:"pwn.college — Formation structurée en sécurité"},"pr.pwn.meta":{en:"STATUS: ongoing | PRIMARY PLATFORM",fr:"STATUT : en cours | PLATEFORME PRINCIPALE"},"pr.pwn.text":{en:"Completed the <strong style='color:#fff'>Linux Luminarium</strong> module; currently progressing through <strong style='color:#fff'>Computing 101</strong>. Also active on TryHackMe, PortSwigger Web Security Academy, Hack The Box Starting Point, and picoCTF.",fr:"Module <strong style='color:#fff'>Linux Luminarium</strong> terminé ; progression en cours dans <strong style='color:#fff'>Computing 101</strong>. Actif également sur TryHackMe, PortSwigger Web Security Academy, Hack The Box Starting Point et picoCTF."},
+"pr.guide.title":{en:"Personal Linux Reference Guide",fr:"Guide de référence Linux personnel"},"pr.guide.meta":{en:"AUTHORED &amp; MAINTAINED",fr:"AUTEUR &amp; MAINTENEUR"},"pr.guide.text":{en:"Built and maintain a personal cheat sheet covering core Linux administration topics learned through pwn.college challenges — including PATH hijacking, permissions, and text-processing workflows.",fr:"J'ai créé et je maintiens une fiche de référence personnelle couvrant les sujets clés de l'administration Linux appris via les challenges pwn.college — notamment le détournement de PATH, les permissions et les flux de traitement de texte."},
+"pr.case.title":{en:"Web Application Security Case Study",fr:"Étude de cas : sécurité d'applications web"},"pr.case.meta":{en:"INDEPENDENT RESEARCH",fr:"RECHERCHE INDÉPENDANTE"},"pr.case.text":{en:"Analyzed a web application penetration testing case end-to-end: attack chains and remediation strategies for XSS with JWT hijacking, HTTP Parameter Pollution, SQL Injection, and Local File Inclusion.",fr:"Analyse complète d'un cas de test d'intrusion d'application web : chaînes d'attaque et stratégies de remédiation pour XSS avec détournement de JWT, pollution des paramètres HTTP, injection SQL et inclusion de fichiers locaux."},
+"ld.title":{en:"PACT — GlycoCare Initiative",fr:"PACT — Initiative GlycoCare"},"ld.meta":{en:"1ST YEAR @ SUP'COM | TEAM MEMBER &amp; WEBSITE DEVELOPER",fr:"1<sup>re</sup> ANNÉE @ SUP'COM | MEMBRE DE L'ÉQUIPE &amp; DÉVELOPPEUR WEB"},"ld.text":{en:"Student-led social impact project for diabetes awareness, run end-to-end: fundraising, sponsorships, social media, and public events.",fr:"Projet étudiant à impact social de sensibilisation au diabète, mené de bout en bout : collecte de fonds, sponsoring, réseaux sociaux et événements publics."},
+"ld.b1":{en:"Designed and built the project's website — <a href='https://glycocare.me' target='_blank' rel='noopener'>glycocare.me</a>",fr:"Conception et développement du site web du projet — <a href='https://glycocare.me' target='_blank' rel='noopener'>glycocare.me</a>"},"ld.b2":{en:"Organized a charity marathon fundraiser with paid entry",fr:"Organisation d'un marathon caritatif avec participation payante"},"ld.b3":{en:"Secured two sponsorships: gym memberships (top-3 prizes) and Délice beverages",fr:"Obtention de deux partenariats : abonnements de salle de sport (prix top-3) et boissons Délice"},"ld.b4":{en:"Converted funds raised into glycometers for patients in need",fr:"Conversion des fonds collectés en glucomètres pour des patients dans le besoin"},
+"edu.sup.title":{en:"Sup'Com — Higher School of Communication of Tunis",fr:"Sup'Com — École Supérieure des Communications de Tunis"},"edu.sup.when":{en:"ENGINEERING CYCLE — CURRENT",fr:"CYCLE INGÉNIEUR — EN COURS"},"edu.sup.text":{en:"Diplôme d'Ingénieur, Telecommunications — 1st year. Working toward the <strong style='color:#fff'>CySed (cybersecurity) specialization track</strong>, a GPA-gated program.",fr:"Diplôme d'Ingénieur, Télécommunications — 1<sup>re</sup> année. En route vers la <strong style='color:#fff'>spécialisation CySed (cybersécurité)</strong>, un programme sélectif basé sur la moyenne."},
+"edu.prep.title":{en:"Preparatory Program for Engineering Studies",fr:"Cycle préparatoire aux études d'ingénieur"},"edu.prep.when":{en:"TWO-YEAR CYCLE — COMPLETED",fr:"CYCLE DE DEUX ANS — TERMINÉ"},"edu.prep.text":{en:"Built strong mathematical foundations in preparation for the engineering cycle.",fr:"Solides bases mathématiques acquises en préparation du cycle ingénieur."},
+"c.email":{en:"Email",fr:"E-mail"},"c.phone":{en:"Phone",fr:"Téléphone"},"c.location":{en:"Location",fr:"Localisation"},"c.location.val":{en:"Tunisia",fr:"Tunisie"},"c.langs":{en:"Languages",fr:"Langues"},"c.langs.val":{en:"Arabic — Native<br>English — Fluent<br>French — Reading proficiency",fr:"Arabe — Langue maternelle<br>Anglais — Courant<br>Français — Bon niveau de lecture"},
+"footer":{en:"&#169; 2026 Mohamed Laabidi — Built with a terminal-inspired mindset.",fr:"&#169; 2026 Mohamed Laabidi — Conçu avec un esprit terminal."}
+};
+function setLang(l){
+  var els=document.querySelectorAll("[data-i18n]");
+  for(var i=0;i<els.length;i++){
+    var t=I18N[els[i].getAttribute("data-i18n")];
+    if(t){els[i].innerHTML=t[l];}
+  }
+  document.documentElement.setAttribute("lang",l==="fr"?"fr":"en");
+  var b=document.getElementById("langBtn");
+  if(b){b.textContent=l==="fr"?"EN":"FR";b.setAttribute("aria-label",l==="fr"?"Switch to English":"Passer en français");}
+  try{localStorage.setItem("siteLang",l);}catch(e){}
+}
+var saved="en";
+try{saved=localStorage.getItem("siteLang")||"en";}catch(e){}
+if(saved!=="en"&&saved!=="fr"){saved="en";}
+if(saved==="fr"){setLang("fr");}else{setLang("en");}
+document.getElementById("langBtn").addEventListener("click",function(){
+  var cur=document.documentElement.getAttribute("lang")==="fr"?"fr":"en";
+  setLang(cur==="fr"?"en":"fr");
+});
 (function(){
   var toggle=document.querySelector('.nav-toggle');
   var links=document.querySelectorAll('nav ul a');
